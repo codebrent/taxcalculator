@@ -1,0 +1,25 @@
+.input-container {
+    padding: 16px;
+    padding-bottom: 0;
+    width: 500px;
+}
+
+.input-container input{
+    text-align: right;
+}
+
+.result-container {
+    padding: 0 16px;
+    width: 410px;
+}
+
+div.result-container input[readonly]{
+    text-align: right;
+    background-color:transparent;
+}
+
+div.alert {
+    margin: 16px;
+    margin-top: 0;
+    width: 468px;    
+}

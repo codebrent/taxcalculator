@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="tax-calculator">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tax Calculator</title>
+        <link rel="stylesheet" href="bootstrap.css" />
+        <link rel="stylesheet" href="app.css" />        
+        <script src="angular.js"></script>
+        <script src="MainController.js"></script>
+        <script src="TaxService.js"></script>
+        <script src="app.js"></script>    
+  </head>
+  <body ng-controller="mainController as ctrl" ng-cloak>
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand">Tax Calculator</span>
+    </nav>
+    <div class="card">
+        <div class="card-body input-container">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Gross income</span>
+                </div>
+                <input type="text" class="form-control" ng-model="ctrl.inputValue">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button" ng-disabled="!ctrl.inputValid" ng-click="ctrl.update()" novalidate>Calculate</button>
+                </div>
+            </div>          
+        </div>
+        <div class="card-body result-container">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Tax</span>
+                </div>              
+                <input type="text" class="form-control" value="{{ctrl.resultValue | number : 2}}" readonly>
+            </div>          
+        </div>    
+        <div class="alert alert-danger" role="alert" ng-hide="ctrl.inputValid">
+            Please enter a valid number greater than 0
+        </div>
+    </div>
+  </body>
+</html>

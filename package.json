@@ -1,0 +1,42 @@
+{
+  "name": "tax-calculator",
+  "version": "0.0.0",
+  "description": "A tax calculator",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "http-server": "^0.11.1",
+    "jasmine-core": "^3.3.0",
+    "karma": "^3.1.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2",
+    "protractor": "^5.4.1"
+  },
+  "scripts": {
+    "build": "babel app -d public",
+    "start": "http-server ./public -a localhost -p 8000 -c-1",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "npm test -- --single-run",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.7.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": "> 0.25%, not dead"
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ],
+    "ignore": [
+      "**/*.spec.js"
+    ]
+  }
+}
